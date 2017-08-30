@@ -3,7 +3,7 @@ syntax = "proto3";
 import "scalapb/scalapb.proto";
 import "models.proto";
 
-package com.grandsys.inu.protos.storedQuery;
+package com.grandsys.inu.storedq;
 
 message CreateStoredQuery {
     string id = 1;

@@ -32,8 +32,8 @@ object Settings {
     libraryDependencies ++= Seq(libs.scalapb) ++ grpcLibs
   )
 
-  lazy val proto3Settings = Seq(
-    assemblyJarName in assembly := "proto3-" + version.value + ".jar",
+  lazy val assemblySettings = Seq(
+    assemblyJarName in assembly := "storedq-grpc-" + version.value + ".jar",
     test in assembly := {},
     target in assembly := file(baseDirectory.value + "/../bin/"),
     assemblyOption in assembly := (assemblyOption in assembly).value.copy(

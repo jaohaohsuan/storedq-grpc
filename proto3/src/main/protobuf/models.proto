@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "scalapb/scalapb.proto";
 
-package com.grandsys.inu.protos.storedQuery;
+package com.grandsys.inu.storedq;
 
 option (scalapb.options) = {
     single_file: true
