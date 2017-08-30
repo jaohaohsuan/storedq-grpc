@@ -15,10 +15,12 @@ podTemplate(
         ]) {
 
     node(podLabel) {
-        stage('build') {
-            checkout scm
-            container('sbt') {
-                sh "sbt compile"
+        ansiColor('xterm') {
+            stage('build') {
+                checkout scm
+                container('sbt') {
+                    sh "sbt compile"
+                }
             }
         }
     }
