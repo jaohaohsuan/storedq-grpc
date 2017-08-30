@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "scalapb/scalapb.proto";
+import "models.proto";
+
+package com.grandsys.inu.protos.storedQuery;
+
+message CreateStoredQuery {
+    string id = 1;
+    string title = 2;
+    repeated string tags = 3;
+}
+
+message AddClause {
+    string stored_query_id = 1;
+    Occurrence occurrence = 2;
+    oneof clause {
+        MatchClause match = 6;
+        SpanNearClause span_near = 7;
+        ReferenceClause reference = 8;
+    }
+}

@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+import "scalapb/scalapb.proto";
+
+package com.grandsys.inu.protos.storedQuery;
+
+option (scalapb.options) = {
+    single_file: true
+    preamble: "sealed trait BoolClause"
+};
+
+enum Occurrence {
+    MUST = 0;
+    MUST_NOT = 1;
+    SHOULD = 2;
+}
+
+message MatchClause {
+    option (scalapb.message).extends = "BoolClause";
+    string query = 1;
+    string field = 2;
+}
+
+message SpanNearClause {
+    option (scalapb.message).extends = "BoolClause";
+    string query = 1;
+    string field = 2;
+    int32 slop = 3;
+    bool in_order = 4;
+}
+
+message ReferenceClause {
+    option (scalapb.message).extends = "BoolClause";
+    string id = 1;
+    string name = 2;
+}
