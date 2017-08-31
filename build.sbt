@@ -1,6 +1,4 @@
-import Dependencies._
-
-lazy val proto3 = (project in file("proto3")).
+lazy val root = (project in file(".")).
   settings(Settings.settings: _*).
   settings(Settings.assemblySettings: _*).
   settings(Settings.scalapbSettings).

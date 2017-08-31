@@ -25,6 +25,7 @@ object Settings {
     fork in IntegrationTest := true
   )
 
+
   lazy val scalapbSettings = Seq(
     PB.targets in Compile := Seq(
       scalapb.gen() -> (sourceManaged in Compile).value

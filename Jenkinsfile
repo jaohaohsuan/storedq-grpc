@@ -22,6 +22,12 @@ podTemplate(
                     sh "sbt compile"
                 }
             }
+            stage('archive') {
+                sh 'mkdir -p protobuf'
+                sh "cp -r target/protobuf_external/scalapb protobuf/"
+                sh 'cp -r src/main/protobuf/* protobuf'
+                archiveArtifacts artifacts: 'protobuf', defaultExcludes: false, onlyIfSuccessful: true
+            }
         }
     }
 }
