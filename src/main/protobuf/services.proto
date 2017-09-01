@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "scalapb/scalapb.proto";
+import "commands.proto";
+
+package com.grandsys.inu.storedq;
+
+service StoredQueries {
+    rpc Create(CreateStoredQuery) returns (CreateReply) {}
+}
+
+message CreateReply {
+    string id = 1;
+    string message = 2;
+}
