@@ -6,10 +6,11 @@ import "commands.proto";
 package com.grandsys.inu.storedq;
 
 service StoredQueries {
-    rpc Create(CreateStoredQuery) returns (CreateReply) {}
+    rpc Create(CreateStoredQuery) returns (CreatedAck) {}
+    rpc AddClauses(AddClause) returns (CreatedAck) {}
 }
 
-message CreateReply {
+message CreatedAck {
     string id = 1;
     string message = 2;
 }
