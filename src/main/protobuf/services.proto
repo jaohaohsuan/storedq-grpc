@@ -1,6 +1,5 @@
 syntax = "proto3";
 
-import "google/protobuf/any.proto";
 import "scalapb/scalapb.proto";
 import "commands.proto";
 
@@ -9,7 +8,6 @@ package com.grandsys.inu.storedq;
 service StoredQueries {
     rpc Create(CreateStoredQuery) returns (CreatedAck) {}
     rpc AddClauses(AddClause) returns (CreatedAck) {}
-    rpc Send(google.protobuf.Any) returns (google.protobuf.Any) {}
 }
 
 message CreatedAck {
