@@ -17,6 +17,6 @@ message AddClause {
     oneof clause {
         MatchClause match = 6;
         SpanNearClause span_near = 7;
-        ReferenceClause reference = 8;
+        ReferencedClause reference = 8;
     }
 }

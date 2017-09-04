@@ -6,7 +6,7 @@ package com.grandsys.inu.storedq;
 
 option (scalapb.options) = {
     single_file: true
-    preamble: "sealed trait BoolClause"
+    preamble: "sealed trait Clause"
 };
 
 enum Occurrence {
@@ -16,21 +16,41 @@ enum Occurrence {
 }
 
 message MatchClause {
-    option (scalapb.message).extends = "BoolClause";
+    option (scalapb.message).extends = "Clause";
     string query = 1;
     string field = 2;
 }
 
 message SpanNearClause {
-    option (scalapb.message).extends = "BoolClause";
+    option (scalapb.message).extends = "Clause";
     string query = 1;
     string field = 2;
     int32 slop = 3;
     bool in_order = 4;
 }
 
-message ReferenceClause {
-    option (scalapb.message).extends = "BoolClause";
+message ReferencedClause {
+    option (scalapb.message).extends = "Clause";
     string id = 1;
     string name = 2;
+}
+
+message BoolClause {
+    Occurrence occurrence = 1;
+    oneof clause {
+        MatchClause match = 6;
+        SpanNearClause span_near = 7;
+        ReferencedClause reference = 8;
+    }
+}
+
+message StoredQuery {
+    string id = 1;
+    string title = 2;
+    repeated string tags = 3;
+    map<string, BoolClause> clauses = 4;
+}
+
+message StoredQueriesState {
+    map<string, StoredQuery> items = 1;
 }
