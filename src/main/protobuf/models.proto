@@ -7,6 +7,7 @@ package com.grandsys.inu.storedq;
 option (scalapb.options) = {
     single_file: true
     preamble: "sealed trait Clause"
+
 };
 
 enum Occurrence {
@@ -51,6 +52,13 @@ message StoredQuery {
     map<string, BoolClause> clauses = 4;
 }
 
+message DirectedEdge {
+    option (scalapb.message).extends = "com.grandsys.inu.algorithm.DAG.Edge";
+    string start = 1;
+    string end = 2;
+}
+
 message StoredQueriesState {
     map<string, StoredQuery> items = 1;
+    map<string, DirectedEdge> paths = 2;
 }
