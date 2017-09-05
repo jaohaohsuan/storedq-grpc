@@ -2,15 +2,14 @@ syntax = "proto3";
 
 import "scalapb/scalapb.proto";
 import "commands.proto";
+import "acks.proto";
 
 package com.grandsys.inu.storedq;
 
 service StoredQueries {
-    rpc Create(CreateStoredQuery) returns (CreatedAck) {}
-    rpc AddClauses(AddClause) returns (CreatedAck) {}
-}
-
-message CreatedAck {
-    string id = 1;
-    string message = 2;
+    rpc Create(CreateStoredQuery) returns (StoredQueryCreateAck) {}
+    rpc Upate(UpdateStoredQuery) returns (StoredQueryUpdateAck) {}
+    rpc AddClause(AddBoolClause) returns (AddClauseAck) {}
+    rpc RemoveClause(RemoveBoolClause) returns (RemoveClauseAck) {}
+    rpc ResetClauses(ResetBoolClauses) returns (ResetClausesAck) {}
 }

@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "scalapb/scalapb.proto";
+
+package com.grandsys.inu.storedq;
+
+message StoredQueryCreateAck {
+    string id = 1;
+    string message = 2;
+    bool success = 3;
+    bool duplicated = 4;
+}
+
+message StoredQueryUpdateAck {
+    string id = 1;
+    string message = 2;
+    bool success = 3;
+    bool exist = 4;
+}
+
+message RemoveClauseAck {
+    string message = 1;
+    bool success = 2;
+    bool stored_query_id_exist = 3;
+    bool clause_id_exist = 4;
+}
+
+message ResetClausesAck {
+    string message = 1;
+    bool success = 2;
+    bool stored_query_id_exist = 3;
+}
+
+message AddClauseAck {
+    string id = 1;
+    string message = 2;
+    bool success = 3;
+}

@@ -9,9 +9,16 @@ message CreateStoredQuery {
     string id = 1;
     string title = 2;
     repeated string tags = 3;
+    string copyFromId = 4;
 }
 
-message AddClause {
+message UpdateStoredQuery {
+    string id = 1;
+    string title = 2;
+    repeated string tags = 3;
+}
+
+message AddBoolClause {
     string stored_query_id = 1;
     Occurrence occurrence = 2;
     oneof clause {
@@ -19,4 +26,14 @@ message AddClause {
         SpanNearClause span_near = 7;
         ReferencedClause reference = 8;
     }
+}
+
+message RemoveBoolClause {
+    string stored_query_id = 1;
+    string clause_id = 2;
+}
+
+message ResetBoolClauses {
+    string stored_query_id = 1;
+    Occurrence occurrence = 2;
 }
