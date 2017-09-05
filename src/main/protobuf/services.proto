@@ -8,7 +8,7 @@ package com.grandsys.inu.storedq;
 
 service StoredQueries {
     rpc Create(CreateStoredQuery) returns (StoredQueryCreateAck) {}
-    rpc Upate(UpdateStoredQuery) returns (StoredQueryUpdateAck) {}
+    rpc Update(UpdateStoredQuery) returns (StoredQueryUpdateAck) {}
     rpc AddClause(AddBoolClause) returns (AddClauseAck) {}
     rpc RemoveClause(RemoveBoolClause) returns (RemoveClauseAck) {}
     rpc ResetClauses(ResetBoolClauses) returns (ResetClausesAck) {}
