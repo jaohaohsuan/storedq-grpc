@@ -24,9 +24,12 @@ podTemplate(
             }
             stage('archive') {
                 sh 'mkdir -p protobuf'
-                sh "cp -r target/protobuf_external/scalapb protobuf/"
-                sh 'cp -r src/main/protobuf/* protobuf'
-                archiveArtifacts artifacts: 'protobuf', defaultExcludes: false, onlyIfSuccessful: true
+                sh "cp -r target/protobuf_external/* protobuf/"
+                sh 'cp -r src/main/protobuf/* protobuf/'
+                sh 'which tar'
+                sh 'tar cfvz protobuf.tar.gz protobuf'
+
+                archiveArtifacts artifacts: 'protobuf.tar.gz', defaultExcludes: false, onlyIfSuccessful: true
             }
         }
     }
