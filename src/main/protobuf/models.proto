@@ -16,10 +16,16 @@ enum Occurrence {
     SHOULD = 2;
 }
 
+enum Operator {
+    OR = 0;
+    AND = 1;
+}
+
 message MatchClause {
     option (scalapb.message).extends = "Clause";
     string query = 1;
     string field = 2;
+    Operator operator = 3;
 }
 
 message SpanNearClause {
