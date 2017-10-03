@@ -65,5 +65,5 @@ message DirectedEdge {
 
 message StoredQueriesState {
     map<string, StoredQuery> items = 1;
-    map<string, DirectedEdge> paths = 2;
+    map<DirectedEdge, string> paths = 2;
 }
