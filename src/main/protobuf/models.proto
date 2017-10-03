@@ -39,6 +39,7 @@ message ReferencedClause {
     option (scalapb.message).extends = "Clause";
     string id = 1;
     string name = 2;
+    BoolClause clauses = 3;
 }
 
 message BoolClause {
