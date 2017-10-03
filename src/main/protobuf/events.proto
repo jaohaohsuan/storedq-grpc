@@ -23,11 +23,11 @@ message ItemUpdated {
 message ClauseAdded {
     option (scalapb.message).extends = "com.grandsys.cqrs.Event";
     string id = 1;
-    map<string, BoolClause> clauses = 2;
+    BoolClause clauses = 2;
 }
 
 message ClauseRemoved {
     option (scalapb.message).extends = "com.grandsys.cqrs.Event";
     string id = 1;
-    map<string, BoolClause> clauses = 2;
+    BoolClause clauses = 2;
 }
