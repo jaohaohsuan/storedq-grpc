@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "scalapb/scalapb.proto";
+import "models.proto";
+
+package com.grandsys.inu.storedq;
+
+message ItemCreated {
+    option (scalapb.message).extends = "com.grandsys.cqrs.Event";
+    string id = 1;
+    string title = 2;
+    repeated string tags = 3;
+    string copyFromId = 4;
+}
+
+message ItemUpdated {
+    option (scalapb.message).extends = "com.grandsys.cqrs.Event";
+    string id = 1;
+    string title = 2;
+    repeated string tags = 3;
+}
+
+message ClauseAdded {
+    option (scalapb.message).extends = "com.grandsys.cqrs.Event";
+    string id = 1;
+    map<string, BoolClause> clauses = 2;
+}
+
+message ClauseRemoved {
+    option (scalapb.message).extends = "com.grandsys.cqrs.Event";
+    string id = 1;
+    map<string, BoolClause> clauses = 2;
+}
