@@ -30,6 +30,5 @@ message ClauseAdded {
 message ClauseRemoved {
     option (scalapb.message).extends = "com.grandsys.cqrs.Event";
     string storedQueryId = 1;
-    string clauseId = 2;
-    BoolClause clause = 3;
+    repeated string clauseIds = 2;
 }
