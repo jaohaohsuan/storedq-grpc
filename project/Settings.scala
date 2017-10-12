@@ -8,6 +8,7 @@ object Settings {
 
 
   lazy val settings = Seq(
+    name := "storedq-grpc",
     organization := "com.grandsys",
     version := "0.0.1",
     scalaVersion := "2.12.3",

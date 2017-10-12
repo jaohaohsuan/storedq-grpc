@@ -19,7 +19,8 @@ podTemplate(
             stage('build') {
                 checkout scm
                 container('sbt') {
-                    sh "sbt 'compile' 'assembly'"
+                    sh "sbt compile"
+                    sh "sbt publishLocal"
                 }
             }
             stage('archive') {
@@ -30,10 +31,6 @@ podTemplate(
                 sh 'tar cfvz protobuf.tar.gz protobuf'
 
                 archiveArtifacts artifacts: 'protobuf.tar.gz', defaultExcludes: false, onlyIfSuccessful: true
-
-                sh 'tar cfvz storedq-grpc.tar.gz ../bin'
-
-                archiveArtifacts artifacts: 'storedq-grpc.tar.gz', defaultExcludes: false, onlyIfSuccessful: true
             }
         }
     }
