@@ -20,12 +20,7 @@ message UpdateStoredQuery {
 
 message AddBoolClause {
     string stored_query_id = 1;
-    Occurrence occurrence = 2;
-    oneof clause {
-        MatchClause match = 6;
-        SpanNearClause span_near = 7;
-        ReferencedClause reference = 8;
-    }
+    BoolClause clause = 3;
 }
 
 message RemoveBoolClause {
