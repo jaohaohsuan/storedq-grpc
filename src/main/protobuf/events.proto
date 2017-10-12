@@ -22,14 +22,14 @@ message ItemUpdated {
 
 message ClauseAdded {
     option (scalapb.message).extends = "com.grandsys.cqrs.Event";
-    string clauseId = 1;
-    string storedQueryId = 2;
+    string storedQueryId = 1;
+    string clauseId = 2;
     BoolClause clause = 3;
 }
 
 message ClauseRemoved {
     option (scalapb.message).extends = "com.grandsys.cqrs.Event";
-    string clauseId = 1;
-    string storedQueryId = 2;
+    string storedQueryId = 1;
+    string clauseId = 2;
     BoolClause clause = 3;
 }
