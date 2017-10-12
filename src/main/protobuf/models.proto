@@ -58,12 +58,6 @@ message StoredQuery {
     map<string, BoolClause> clauses = 4;
 }
 
-message DirectedEdge {
-    option (scalapb.message).extends = "com.grandsys.inu.algorithm.DAG.Edge";
-    string start = 1;
-    string end = 2;
-}
-
 message StoredQueriesState {
     map<string, StoredQuery> items = 1;
     map<string, string> paths = 2;
