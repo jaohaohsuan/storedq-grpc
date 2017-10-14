@@ -61,4 +61,5 @@ message StoredQuery {
 message StoredQueriesState {
     map<string, StoredQuery> items = 1;
     map<string, string> paths = 2;
+    repeated string changes = 3;
 }
